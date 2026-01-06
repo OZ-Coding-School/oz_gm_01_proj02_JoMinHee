@@ -1,0 +1,5 @@
+ID,Name,Description,BaseHP,BaseAttack,BaseDefense,BaseCriticalChance,DefaultSkillIDs,UnlockCost
+CH_001,전사,튼튼한 방어력을 가진 근접 전사,120,15,0,0.1,SK_001;SK_002,0
+CH_002,법사,강력한 화염 마법을 사용합니다,80,25,0,0.05,SK_003;SK_004,100
+CH_003,궁수,원거리에서 정확한 사격을 합니다,90,20,0,0.2,SK_005;SK_006,100
+CH_004,힐러,아군을 치료하는 성직자입니다,70,10,0,0.0,SK_007;SK_008,100

@@ -1,0 +1,10 @@
+ID,Name,Description,MaxHP,Attack,Defense,CriticalChance,AIBehavior,SkillIds,MinFloor,MaxFloor,IsBoss,GoldReward,ExpReward,DropRelicID,RelicDropChance
+EN_001,고블린 전사,약하지만 수가 많은 몬스터입니다,40,8,0,0.05,Aggressive,SK_001,1,1,False,10,15,RL_001,0.1
+EN_002,늑대 인간,빠른 속도로 공격하는 야수입니다,60,12,0,0.1,Random,SK_005;SK_006,1,2,False,20,25,RL_002,0.15
+EN_003,오우거,튼튼한 방어력을 가진 강력한 적입니다,100,15,0,0.05,Defensive,SK_001;SK_010,2,3,False,35,40,,0
+EN_004,다크 엘프,마법과 저주를 사용하는 교활한 적입니다,80,18,0,0.15,Tactical,SK_003;SK_010,2,3,False,30,35,RL_003,0.2
+EN_005,스켈레톤 기사,죽음에서 되살아난 해골 전사입니다,70,14,5,0.1,Aggressive,SK_001;SK_009,2,4,False,25,30,,0
+EN_006,블랙 나이트,1층의 보스. 강력한 검을 휘두릅니다,200,20,5,0.15,Tactical,SK_001;SK_009;SK_012,1,1,True,100,200,RL_004,0.3
+EN_007,아이스 골렘,2층의 보스. 얼음 공격을 사용합니다,350,25,10,0.1,Aggressive,SK_001;SK_003;SK_009,2,2,True,150,300,RL_005,0.3
+EN_008,네크로맨서,3층의 보스. 강력한 마법을 사용합니다,450,30,5,0.2,Tactical,SK_003;SK_010;SK_012,3,3,True,200,400,RL_006,0.3
+EN_009,던전 마스터,4층의 최종 보스. 모든 능력이 최상급입니다,600,35,10,0.25,Tactical,SK_009;SK_010;SK_011;SK_012,4,4,True,500,1000,RL_007,0.5

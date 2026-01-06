@@ -1,0 +1,13 @@
+ID,Name,Description,ItemType,Rarity,AttackBonus,DefenseBonus,HPBonus,CriticalBonus,BuyPrice,SellPrice,IsLocked,UnlockCost
+IT_001,녹슨 검,기본적인 근접 무기입니다,Weapon,Common,5,0,0,0,50,20,False,0
+IT_002,강철 검,날카로운 강철로 만들어진 검입니다,Weapon,Rare,12,0,0,0.05,150,60,False,50
+IT_003,미스릴 소드,가볍지만 강력한 마법 검입니다,Weapon,Rare,18,0,10,0.1,300,120,True,200
+IT_004,전설의 성검,고대의 힘이 깃든 전설적인 무기입니다,Weapon,Epic,30,0,20,0.2,800,320,True,500
+IT_005,가죽 갑옷,기본적인 방어구입니다,Armor,Common,0,3,15,0,40,15,False,0
+IT_006,사슬 갑옷,사슬로 만들어진 중형 방어구입니다,Armor,Rare,0,8,30,0,120,50,False,80
+IT_007,플레이트 아머,튼튼한 강철로 만들어진 최상급 방어구입니다,Armor,Epic,0,15,50,0.05,500,200,True,400
+IT_008,힘의 반지,공격력을 증가시키는 반지입니다,Accessory,Rare,8,0,0,0.08,200,80,False,100
+IT_009,생명의 목걸이,최대 HP를 증가시키는 목걸이입니다,Accessory,Rare,0,0,25,0,180,70,False,100
+IT_010,속도의 부츠,치명타 확률을 증가시키는 부츠입니다,Accessory,Common,0,0,5,0.1,100,40,False,0
+IT_011,작은 체력 포션,HP를 30 회복시키는 소모품입니다,Consumable,Common,0,0,0,0,20,5,False,0
+IT_012,큰 체력 포션,HP를 60 회복시키는 소모품입니다,Consumable,Rare,0,0,0,0,50,15,False,30

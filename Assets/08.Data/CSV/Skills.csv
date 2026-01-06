@@ -1,0 +1,13 @@
+ID,Name,Description,APCost,SkillType,TargetType,DamageMultiplier,CriticalBonus,Effects,StatusDuration,StatusIntensity
+SK_001,파워 스트라이크,강력한 일격으로 적에게 큰 피해를 입힙니다,2,Attack,Single,1.8,0.1,Damage,0,0
+SK_002,방어 태세,2턴 동안 방어력을 10 증가시킵니다,1,Buff,Self,0,0,DefenseUp,2,10
+SK_003,파이어볼,화염구를 던져 적에게 피해를 입힙니다,2,Attack,Single,2.0,0.05,Damage,0,0
+SK_004,마나 쉴드,3턴 동안 방어력을 15 증가시킵니다,2,Buff,Self,0,0,DefenseUp,3,15
+SK_005,관통 사격,적을 관통하여 피해를 입힙니다,1,Attack,Single,1.5,0.15,Damage;HighCrit,0,0
+SK_006,맹독 화살,3턴 동안 매 턴 피해를 입히는 독을 부여합니다,2,Attack,Single,1.0,0,Damage;Poison,3,5
+SK_007,치유의 빛,아군의 HP를 30 회복시킵니다,2,Heal,Single,0,0,Heal,0,30
+SK_008,신성 축복,3턴 동안 아군의 공격력을 5 증가시킵니다,1,Buff,Single,0,0,AttackUp,3,5
+SK_009,더블 스트라이크,두 번 연속 공격합니다,3,Attack,Single,1.0,0,Damage;MultiHit,0,0
+SK_010,위협의 외침,모든 적의 공격력을 2턴 동안 5 감소시킵니다,2,Debuff,AoE,0,0,AttackDown,2,5
+SK_011,회복의 바람,모든 아군의 HP를 20 회복시킵니다,3,Heal,AllAllies,0,0,Heal,0,20
+SK_012,암살,치명타 확률이 30% 증가하는 강력한 일격,2,Attack,Single,2.2,0.3,Damage;HighCrit,0,0

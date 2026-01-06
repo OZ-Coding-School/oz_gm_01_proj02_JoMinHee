@@ -1,0 +1,13 @@
+ID,Name,Description,RelicType,Rarity,AttackIncrease,DefenseIncrease,HPIncrease,CriticalChanceIncrease,RerollCostReduction,StartingAPIncrease,SpecialEffect,SpecialEffectID
+RL_001,용맹의 훈장,전투 시작 시 공격력이 3 증가합니다,Passive,Common,3,0,0,0,0,0,,
+RL_002,튼튼한 방패,전투 시작 시 방어력이 5 증가합니다,Passive,Common,0,5,0,0,0,0,,
+RL_003,생명의 보석,전투 시작 시 최대 HP가 20 증가합니다,Passive,Common,0,0,20,0,0,0,,
+RL_004,정확한 조준경,치명타 확률이 5% 증가합니다,Passive,Rare,0,0,0,0.05,0,0,,
+RL_005,리롤의 부적,스킬 리롤 비용이 1 감소합니다,Passive,Rare,0,0,0,0,1,0,,
+RL_006,선제 공격,전투 시작 시 AP가 1 추가로 제공됩니다,Passive,Rare,0,0,0,0,0,1,,
+RL_007,고귀한 혈통,모든 능력치가 5 증가합니다,Passive,Epic,5,5,30,0.05,0,0,,
+RL_008,전사의 영혼,전투 시작 시 50% 확률로 강화 효과를 받습니다,Trigger,Epic,0,0,0,0,0,0,BuffOnStart,1
+RL_009,보물 사냥꾼의 눈,골드 획득량이 20% 증가합니다,Passive,Rare,0,0,0,0,0,0,,
+RL_010,흡혈의 검,공격 시 피해의 10%만큼 HP 회복,Trigger,Epic,0,0,0,0,0,0,Lifesteal,0.1
+RL_011,마법 저항,상태 이상 지속 시간이 1턴 감소합니다,Passive,Rare,0,0,0,0,0,0,,
+RL_012,최후의 일격,적 처치 시 즉시 1AP 회복,Trigger,Legendary,0,0,0,0,0,0,KillRestoreAP,1
