@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using DungeonLog.Data;
 using DungeonLog.Character;
@@ -568,6 +569,126 @@ namespace DungeonLog.Combat
             {
                 Debug.Log($"[SkillExecutor] {user.CharacterName}의 스킬로 {target.CharacterName}에게 {skill.StatusEffect.DisplayName} 상태 이상 부여!");
             }
+        }
+
+        // ========================================================================
+        // 확장 타겟팅 시스템
+        // ========================================================================
+
+        /// <summary>
+        /// 확장 타겟을 계산합니다 (SinglePlusAdjacent, SinglePlusRandom 등).
+        /// 주 타겟과 추가 타겟을 모두 반환합니다.
+        /// </summary>
+        public static List<DungeonLog.Character.Character> GetExpandedTargets(
+            DungeonLog.Character.Character user,
+            SkillData skill,
+            DungeonLog.Character.Character primaryTarget,
+            List<DungeonLog.Character.Character> players,
+            List<DungeonLog.Character.Character> enemies)
+        {
+            var allTargets = new List<DungeonLog.Character.Character>();
+
+            if (skill == null || primaryTarget == null)
+            {
+                return allTargets;
+            }
+
+            // 주 타겟 추가
+            allTargets.Add(primaryTarget);
+
+            // 추가 타겟 계산
+            switch (skill.TargetType)
+            {
+                case TargetType.SinglePlusAdjacent:
+                    // 상하 1칸 추가
+                    var adjacentTargets = GetAdjacentTargets(primaryTarget, players, enemies);
+                    allTargets.AddRange(adjacentTargets);
+                    Debug.Log($"[SkillExecutor] 상하 1칸 추가: {adjacentTargets.Count}명");
+                    break;
+
+                case TargetType.SinglePlusRandom:
+                    // 랜덤 1명 추가 (주 타겟 제외)
+                    var randomTarget = GetRandomAdditionalTarget(primaryTarget, user, players, enemies);
+                    if (randomTarget != null)
+                    {
+                        allTargets.Add(randomTarget);
+                        Debug.Log($"[SkillExecutor] 랜덤 추가: {randomTarget.CharacterName}");
+                    }
+                    break;
+            }
+
+            return allTargets;
+        }
+
+        /// <summary>
+        /// 상하 1칸에 있는 캐릭터를 찾습니다.
+        /// </summary>
+        private static List<DungeonLog.Character.Character> GetAdjacentTargets(
+            DungeonLog.Character.Character primaryTarget,
+            List<DungeonLog.Character.Character> players,
+            List<DungeonLog.Character.Character> enemies)
+        {
+            var adjacent = new List<DungeonLog.Character.Character>();
+
+            // 모든 캐릭터를 하나의 리스트로 합치고 인덱스를 찾습니다
+            var allCharacters = new List<DungeonLog.Character.Character>();
+            allCharacters.AddRange(enemies); // 적군 먼저
+            allCharacters.AddRange(players); // 그 다음 아군
+
+            int primaryIndex = allCharacters.IndexOf(primaryTarget);
+            if (primaryIndex == -1)
+            {
+                return adjacent;
+            }
+
+            // 바로 위 (index - 1)
+            if (primaryIndex - 1 >= 0 && primaryIndex - 1 < allCharacters.Count)
+            {
+                var upperTarget = allCharacters[primaryIndex - 1];
+                if (upperTarget != null && !upperTarget.IsDead)
+                {
+                    adjacent.Add(upperTarget);
+                }
+            }
+
+            // 바로 아래 (index + 1)
+            if (primaryIndex + 1 >= 0 && primaryIndex + 1 < allCharacters.Count)
+            {
+                var lowerTarget = allCharacters[primaryIndex + 1];
+                if (lowerTarget != null && !lowerTarget.IsDead)
+                {
+                    adjacent.Add(lowerTarget);
+                }
+            }
+
+            return adjacent;
+        }
+
+        /// <summary>
+        /// 주 타겟을 제외한 랜덤 추가 타겟을 찾습니다.
+        /// </summary>
+        private static DungeonLog.Character.Character GetRandomAdditionalTarget(
+            DungeonLog.Character.Character primaryTarget,
+            DungeonLog.Character.Character user,
+            List<DungeonLog.Character.Character> players,
+            List<DungeonLog.Character.Character> enemies)
+        {
+            // 사용자의 적군만 타겟으로
+            bool isPlayer = players.Contains(user);
+            var potentialTargets = isPlayer ? enemies : players;
+
+            // 주 타겟과 사망한 캐릭터 제외
+            var validTargets = potentialTargets
+                .Where(c => c != primaryTarget && !c.IsDead)
+                .ToList();
+
+            if (validTargets.Count == 0)
+            {
+                return null;
+            }
+
+            int randomIndex = UnityEngine.Random.Range(0, validTargets.Count);
+            return validTargets[randomIndex];
         }
     }
 }
